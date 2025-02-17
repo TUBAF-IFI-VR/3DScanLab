@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://wanq0mg1ytrw"]
+
+[ext_resource type="PackedScene" uid="uid://xjows4duh5bi" path="res://assets/props/table_modern.glb" id="1_36etv"]
+[ext_resource type="PackedScene" uid="uid://bgtv7abelciyk" path="res://assets/props/lever.tscn" id="2_ctfil"]
+[ext_resource type="BoxMesh" uid="uid://oh8s876iq2pl" path="res://assets/props/screen_stand_mesh.tres" id="3_k3tjv"]
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="4_lgkkp"]
+[ext_resource type="PackedScene" uid="uid://dxsjyb81ylok3" path="res://assets/ui/menu_status.tscn" id="5_c6smn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bhtft"]
+size = Vector3(2.02, 0.8, 0.5)
+
+[node name="Controldesk" type="Node3D"]
+transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, 2.552, 0, -0.644)
+
+[node name="Table" parent="." instance=ExtResource("1_36etv")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Table"]
+collision_layer = 2
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Table/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+shape = SubResource("BoxShape3D_bhtft")
+
+[node name="Lever" parent="Table" instance=ExtResource("2_ctfil")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.580698, 0.8, 0.0150697)
+
+[node name="ScreenStand" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.206357, 0.81, -0.155861)
+mesh = ExtResource("3_k3tjv")
+
+[node name="Viewport2Din3D" parent="ScreenStand" instance=ExtResource("4_lgkkp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.375, 0)
+screen_size = Vector2(1, 0.75)
+scene = ExtResource("5_c6smn")
+viewport_size = Vector2(1000, 750)
+input_keyboard = false
+unshaded = true
+scene_properties_keys = PackedStringArray("menu_status.gd")

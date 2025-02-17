@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://eor7mw7r7os3"]
+
+[ext_resource type="Shader" path="res://assets/props/scale_shader.gdshader" id="1_8qodk"]
+[ext_resource type="Texture2D" uid="uid://dxfmt1d0uemg4" path="res://assets/props/scale.png" id="1_p7lpi"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_8qodk")
+shader_parameter/albedo = Color(0.21, 0.618333, 0.7, 1)
+shader_parameter/roughness = 1.0
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/texture_size = Vector2(0.7, 0.7)
+shader_parameter/texture_albedo = ExtResource("1_p7lpi")

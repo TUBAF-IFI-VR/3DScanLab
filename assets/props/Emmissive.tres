@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bsvpfxoagk3t3"]
+
+[resource]
+resource_name = "Emmissive"
+albedo_color = Color(0, 0, 0, 1)
+roughness = 0.0
+emission_enabled = true
+emission = Color(1, 0.333333, 0.113725, 1)
+emission_energy_multiplier = 3.0

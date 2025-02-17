@@ -1,0 +1,84 @@
+[gd_scene load_steps=17 format=3 uid="uid://bgtv7abelciyk"]
+
+[ext_resource type="PackedScene" uid="uid://bol5rj5tmk5tw" path="res://assets/props/lever.glb" id="1_p8nfh"]
+[ext_resource type="Script" path="res://assets/props/lever.gd" id="2_0dn6h"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="2_eyj28"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="5_q37lt"]
+[ext_resource type="PackedScene" uid="uid://da2qgxxwwitl6" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.tscn" id="5_t2eln"]
+[ext_resource type="AudioStream" uid="uid://cpwiaws2dgnno" path="res://assets/sounds/sfx100v2_metal_hit_01.ogg" id="5_wfa6k"]
+[ext_resource type="AudioStream" uid="uid://v0sw53h76tu4" path="res://assets/sounds/sfx100v2_air_02.ogg" id="6_kfvq7"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="6_mn0kn"]
+[ext_resource type="Animation" uid="uid://nq3xh1olqipq" path="res://addons/godot-xr-tools/hands/animations/left/Grip Shaft.res" id="6_yp80j"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="7_x0j70"]
+[ext_resource type="Animation" uid="uid://c8dghcftg1thx" path="res://addons/godot-xr-tools/hands/animations/right/Grip Shaft.res" id="9_ea736"]
+[ext_resource type="AudioStream" uid="uid://canamysi67n1o" path="res://assets/sounds/sfx100v2_misc_15.ogg" id="11_w7kfc"]
+[ext_resource type="AudioStream" uid="uid://b46ifrfn4b4t5" path="res://assets/sounds/sfx100v2_misc_14.ogg" id="12_r06t4"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_conhg"]
+margin = 0.01
+height = 0.25
+radius = 0.02
+
+[sub_resource type="Resource" id="Resource_xg510"]
+script = ExtResource("7_x0j70")
+open_pose = ExtResource("6_yp80j")
+closed_pose = ExtResource("6_yp80j")
+
+[sub_resource type="Resource" id="Resource_wank1"]
+script = ExtResource("7_x0j70")
+open_pose = ExtResource("9_ea736")
+closed_pose = ExtResource("9_ea736")
+
+[node name="Lever" instance=ExtResource("1_p8nfh")]
+script = ExtResource("2_0dn6h")
+
+[node name="GrabTarget" type="Node3D" parent="LeverHandle" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13, 0)
+
+[node name="LeverPivot" type="Node3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.065, -0.113)
+
+[node name="LeverPickup" type="RigidBody3D" parent="LeverPivot" index="0"]
+collision_layer = 4
+collision_mask = 131072
+gravity_scale = 0.0
+freeze = true
+script = ExtResource("2_eyj28")
+release_mode = 1
+ranged_grab_method = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LeverPivot/LeverPickup" index="0"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CylinderShape3D_conhg")
+
+[node name="HighlightRing" parent="LeverPivot/LeverPickup" index="1" instance=ExtResource("5_t2eln")]
+
+[node name="GrabPointHandLeft" parent="LeverPivot/LeverPickup" index="2" instance=ExtResource("5_q37lt")]
+transform = Transform3D(-0.180519, 0.983571, 0, -0.983571, -0.180519, 0, 0, 0, 1, 0.05, -0.023, -0.08)
+visible = true
+hand_pose = SubResource("Resource_xg510")
+
+[node name="GrabPointHandRight" parent="LeverPivot/LeverPickup" index="3" instance=ExtResource("6_mn0kn")]
+transform = Transform3D(-0.180124, -0.983644, 0, 0.983644, -0.180124, 0, 0, 0, 1, -0.05, -0.0231762, -0.0799801)
+visible = true
+hand_pose = SubResource("Resource_wank1")
+
+[node name="TimerSwitch" type="Timer" parent="." index="3"]
+wait_time = 0.4
+one_shot = true
+
+[node name="AudioLeverSwitch" type="AudioStreamPlayer3D" parent="." index="4"]
+stream = ExtResource("5_wfa6k")
+
+[node name="AudioLeverGrab" type="AudioStreamPlayer3D" parent="." index="5"]
+stream = ExtResource("11_w7kfc")
+
+[node name="AudioLeverMove" type="AudioStreamPlayer3D" parent="." index="6"]
+stream = ExtResource("12_r06t4")
+
+[node name="AudioStatusChange" type="AudioStreamPlayer3D" parent="." index="7"]
+stream = ExtResource("6_kfvq7")
+
+[connection signal="dropped" from="LeverPivot/LeverPickup" to="." method="_on_lever_pickup_dropped"]
+[connection signal="picked_up" from="LeverPivot/LeverPickup" to="." method="_on_lever_pickup_picked_up"]
+[connection signal="timeout" from="TimerSwitch" to="." method="_on_timer_sound_timeout"]

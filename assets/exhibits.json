@@ -1,0 +1,65 @@
+{
+	"base_path": "res://assets/3dscans/",
+	"exhibits" : [
+		{
+			"name": "Amaltheus",
+			"thumbnail": "amaltheus.png",
+			"scene": "amaltheus",
+			"metadata" : {
+				"Order" : "Ammonitida",
+				"Family" : "Amaltheidae",
+				"Occurence" : "Jurassic"
+			}
+		},
+		{
+			"name": "Arietites",
+			"thumbnail": "arietites.png",
+			"scene": "arietites",
+			"metadata" : {
+				"Order" : "Ammonitida",
+				"Family" : "Arietitidae",
+				"Occurence" : "Jurassic"
+			}
+		},
+		{
+			"name": "Calceola",
+			"thumbnail": "calceola.png",
+			"scene": "calceola",
+			"metadata" : {
+				"Order" : "Cystiphyllida",
+				"Family" : "Goniophyllidae",
+				"Occurence" : "Devonian"
+			}
+		},
+		{
+			"name": "Inoceramus",
+			"thumbnail": "inoceramus.png",
+			"scene": "inoceramus",
+			"metadata" : {
+				"Order" : "Myalinida",
+				"Family" : "Inoceramidae",
+				"Occurence" : "Jurassic,Cretaceous,Paleogene"
+			}
+		},
+		{
+			"name": "Macrocephalites",
+			"thumbnail": "macrocephalites.png",
+			"scene": "macrocephalites",
+			"metadata" : {
+				"Order" : "Ammonitida",
+				"Family" : "Macrocephalitidae",
+				"Occurence" : "Jurassic"
+			}
+		},
+		{
+			"name": "Orthoceras",
+			"thumbnail": "orthoceras.png",
+			"scene": "orthoceras",
+			"metadata" : {
+				"Order" : "Orthocerida",
+				"Family" : "Orthoceratidae",
+				"Occurence" : "Ordovician,Silurian,Devonian,Carboniferous,Permian,Triassic"
+			}
+		}
+	]
+}

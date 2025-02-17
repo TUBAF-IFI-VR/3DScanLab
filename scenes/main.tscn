@@ -1,0 +1,109 @@
+[gd_scene load_steps=18 format=3 uid="uid://03drxon1vhj7"]
+
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_six4i"]
+[ext_resource type="Texture2D" uid="uid://drltpakpbfea3" path="res://assets/environment/lakeside_night_8k.hdr" id="2_wnjy0"]
+[ext_resource type="PackedScene" uid="uid://cjmoo2feiu7de" path="res://scenes/laboratory.tscn" id="3_3dhs2"]
+[ext_resource type="PackedScene" uid="uid://bx1xdisoqo1f6" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_tac_glove_low.tscn" id="3_o3f6f"]
+[ext_resource type="Material" uid="uid://dogla70w8hvo8" path="res://addons/godot-xr-tools/hands/materials/glove_caucasian_dark_camo.tres" id="4_a038j"]
+[ext_resource type="PackedScene" uid="uid://chumpejwiub7f" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_tac_glove_low.tscn" id="5_gpuhf"]
+[ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="6_2s2lo"]
+[ext_resource type="PackedScene" uid="uid://clc5dre31iskm" path="res://addons/godot-xr-tools/xr/start_xr.tscn" id="7_dpepp"]
+[ext_resource type="PackedScene" uid="uid://fiul51tsyoop" path="res://addons/godot-xr-tools/functions/function_teleport.tscn" id="8_okso4"]
+[ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="9_1kpxa"]
+[ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="11_oy7da"]
+[ext_resource type="PackedScene" uid="uid://bla6hwam1g3ow" path="res://scenes/spawn_desk.tscn" id="12_fbro3"]
+[ext_resource type="PackedScene" uid="uid://bci3aa5tqvs3t" path="res://scenes/identification_desk.tscn" id="14_0bgsl"]
+[ext_resource type="PackedScene" uid="uid://wanq0mg1ytrw" path="res://scenes/controldesk.tscn" id="14_c3siw"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_eoyqv"]
+panorama = ExtResource("2_wnjy0")
+energy_multiplier = 0.1
+
+[sub_resource type="Sky" id="Sky_iqwrh"]
+sky_material = SubResource("PanoramaSkyMaterial_eoyqv")
+
+[sub_resource type="Environment" id="Environment_morp8"]
+background_mode = 2
+sky = SubResource("Sky_iqwrh")
+ambient_light_sky_contribution = 0.1
+tonemap_mode = 2
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_six4i")
+library_file = "res://assets/exhibits.json"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_morp8")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.819152, 0.32899, -0.469847, 0, 0.819152, 0.573577, 0.573576, -0.469846, 0.67101, 0, 4, 0)
+light_color = Color(1, 0.923043, 0.831188, 1)
+light_energy = 0.5
+shadow_enabled = true
+directional_shadow_mode = 1
+directional_shadow_max_distance = 20.0
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5.2, 0)
+light_energy = 2.0
+shadow_enabled = true
+spot_range = 16.0
+spot_angle = 70.0
+spot_angle_attenuation = 0.366021
+
+[node name="Laboratory" parent="." instance=ExtResource("3_3dhs2")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="XROrigin3D" type="XROrigin3D" parent="."]
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+
+[node name="ControllerLeft" type="XRController3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 1, 0)
+tracker = &"left_hand"
+pose = &"aim"
+
+[node name="LeftHand" parent="XROrigin3D/ControllerLeft" instance=ExtResource("3_o3f6f")]
+hand_material_override = ExtResource("4_a038j")
+
+[node name="FunctionTeleport" parent="XROrigin3D/ControllerLeft" instance=ExtResource("8_okso4")]
+collision_mask = 1019
+valid_teleport_mask = 4294967289
+
+[node name="FunctionPickup" parent="XROrigin3D/ControllerLeft" instance=ExtResource("9_1kpxa")]
+grab_distance = 0.1
+ranged_enable = false
+ranged_distance = 2.0
+
+[node name="ControllerRight" type="XRController3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 1, 0)
+tracker = &"right_hand"
+
+[node name="RightHand" parent="XROrigin3D/ControllerRight" instance=ExtResource("5_gpuhf")]
+hand_material_override = ExtResource("4_a038j")
+
+[node name="FunctionPointer" parent="XROrigin3D/ControllerRight" instance=ExtResource("6_2s2lo")]
+distance = 2.0
+laser_length = 1
+show_target = true
+
+[node name="FunctionPickup" parent="XROrigin3D/ControllerRight" instance=ExtResource("9_1kpxa")]
+grab_distance = 0.1
+ranged_enable = false
+ranged_distance = 2.0
+
+[node name="PlayerBody" parent="XROrigin3D" instance=ExtResource("11_oy7da")]
+collision_mask = 1017
+player_calibrate_height = false
+
+[node name="StartXR" parent="." instance=ExtResource("7_dpepp")]
+
+[node name="SpawnDesk" parent="." instance=ExtResource("12_fbro3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="Controldesk" parent="." instance=ExtResource("14_c3siw")]
+transform = Transform3D(0.298225, 0, -0.954495, 0, 1, 0, 0.954495, 0, 0.298225, 2.20179, 0, -0.237573)
+
+[node name="IdentificationDesk" parent="." instance=ExtResource("14_0bgsl")]
+transform = Transform3D(0.219165, 0, 0.975688, 0, 1, 0, -0.975688, 0, 0.219165, -1.83545, 1.19209e-07, -0.418336)

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddkgqxdf1rj6g"]
+
+[ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="1_2ijg2"]
+[ext_resource type="AudioStream" uid="uid://bf80h8h66t3yt" path="res://assets/sounds/sfx100v2_misc_24.ogg" id="2_j6ttb"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ulibs"]
+margin = 0.01
+height = 0.4
+radius = 0.2
+
+[node name="SnapZone" instance=ExtResource("1_2ijg2")]
+stash_sound = ExtResource("2_j6ttb")
+grab_distance = 0.2
+snap_require = "Exhibits"
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+shape = SubResource("CylinderShape3D_ulibs")

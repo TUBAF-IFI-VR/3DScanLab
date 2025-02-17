@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://mek8rus6link"]
+
+[ext_resource type="Texture2D" uid="uid://45ciqmt60xkm" path="res://assets/props/laboratory_Metal045A_1K-JPG_Color.jpg" id="1_bn2eq"]
+[ext_resource type="Texture2D" uid="uid://dqphlne7518vh" path="res://assets/props/laboratory_Metal045A_1K-JPG_NormalGL.jpg" id="2_j587f"]
+[ext_resource type="Texture2D" uid="uid://r2hlc6vecilr" path="res://assets/props/laboratory_Metal045A_1K-JPG_Roughness.png" id="3_737wn"]
+
+[resource]
+resource_name = "Metal045"
+albedo_texture = ExtResource("1_bn2eq")
+metallic = 1.0
+roughness_texture = ExtResource("3_737wn")
+normal_enabled = true
+normal_texture = ExtResource("2_j587f")

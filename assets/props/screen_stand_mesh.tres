@@ -1,0 +1,7 @@
+[gd_resource type="BoxMesh" load_steps=2 format=3 uid="uid://oh8s876iq2pl"]
+
+[ext_resource type="Material" uid="uid://i0xekex4y183" path="res://assets/props/ScreenStand.tres" id="1_q2mjd"]
+
+[resource]
+material = ExtResource("1_q2mjd")
+size = Vector3(1, 0.02, 0.01)

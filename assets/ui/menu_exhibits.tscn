@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://btrxqounurj6j"]
+
+[ext_resource type="Theme" uid="uid://b2saqaygajeis" path="res://assets/ui/menu_lab.theme" id="1_44pft"]
+[ext_resource type="Script" path="res://assets/ui/menu_exhibits.gd" id="1_h24y7"]
+
+[node name="MenuExhibits" type="Panel"]
+offset_right = 800.0
+offset_bottom = 800.0
+theme = ExtResource("1_44pft")
+script = ExtResource("1_h24y7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 13.0
+offset_right = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LabelTitle" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Select a 3D Model"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="GridModels" type="GridContainer" parent="VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 2
+theme_override_constants/v_separation = 2
+columns = 4

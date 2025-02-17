@@ -1,0 +1,39 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://crllslsyb6wd5"
+path.s3tc="res://.godot/imported/amaltheus_ammonit04_T1.jpg-e5a2cd9573cd8c934b0a3fa2797b36ca.s3tc.ctex"
+path.etc2="res://.godot/imported/amaltheus_ammonit04_T1.jpg-e5a2cd9573cd8c934b0a3fa2797b36ca.etc2.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "333cd99b3b4e6d5d61acd7e4e9aacd6a"
+}
+
+[deps]
+
+source_file="res://assets/3dscans/amaltheus_ammonit04_T1.jpg"
+dest_files=["res://.godot/imported/amaltheus_ammonit04_T1.jpg-e5a2cd9573cd8c934b0a3fa2797b36ca.s3tc.ctex", "res://.godot/imported/amaltheus_ammonit04_T1.jpg-e5a2cd9573cd8c934b0a3fa2797b36ca.etc2.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

@@ -1,0 +1,83 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxsjyb81ylok3"]
+
+[ext_resource type="Script" path="res://assets/ui/menu_status.gd" id="1_8v74s"]
+[ext_resource type="Theme" uid="uid://b2saqaygajeis" path="res://assets/ui/menu_lab.theme" id="1_ea82i"]
+
+[node name="MenuExhibits" type="Panel"]
+offset_right = 1000.0
+offset_bottom = 750.0
+theme = ExtResource("1_ea82i")
+script = ExtResource("1_8v74s")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 13.0
+offset_right = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainerUpper" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainerLower" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainerLower"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainerLower/VBoxContainer"]
+layout_mode = 2
+text = "App status"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/HBoxContainerLower/VBoxContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/HBoxContainerLower/VBoxContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="LabelFPS" type="Label" parent="VBoxContainer/HBoxContainerLower/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "FPS: "
+horizontal_alignment = 2
+
+[node name="LabelFPSValue" type="Label" parent="VBoxContainer/HBoxContainerLower/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainerLower"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LabelTitle" type="Label" parent="VBoxContainer/HBoxContainerLower/VBoxContainer2"]
+layout_mode = 2
+text = "XR Status"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/HBoxContainerLower/VBoxContainer2"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/HBoxContainerLower/VBoxContainer2"]
+layout_mode = 2
+columns = 2
+
+[node name="ColorPassthrough" type="ColorRect" parent="VBoxContainer/HBoxContainerLower/VBoxContainer2/GridContainer"]
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 2
+
+[node name="LabelPassthrough" type="Label" parent="VBoxContainer/HBoxContainerLower/VBoxContainer2/GridContainer"]
+layout_mode = 2
+text = "Passthrough unavailable"
+
+[node name="ColorXRMode" type="ColorRect" parent="VBoxContainer/HBoxContainerLower/VBoxContainer2/GridContainer"]
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 2
+
+[node name="LabelXRMode" type="Label" parent="VBoxContainer/HBoxContainerLower/VBoxContainer2/GridContainer"]
+layout_mode = 2
+text = "VR Mode"

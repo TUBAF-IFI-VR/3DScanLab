@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://bla6hwam1g3ow"]
+
+[ext_resource type="PackedScene" uid="uid://xjows4duh5bi" path="res://assets/props/table_modern.glb" id="1_cd4rv"]
+[ext_resource type="BoxMesh" uid="uid://oh8s876iq2pl" path="res://assets/props/screen_stand_mesh.tres" id="2_cf5iy"]
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="2_n6so6"]
+[ext_resource type="PackedScene" uid="uid://bbmudmotbdy1b" path="res://assets/props/pedestal.tscn" id="2_r7v1e"]
+[ext_resource type="PackedScene" uid="uid://btrxqounurj6j" path="res://assets/ui/menu_exhibits.tscn" id="3_gxc1y"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bhtft"]
+size = Vector3(2.02, 0.8, 0.5)
+
+[node name="SpawnDesk" type="Node3D"]
+
+[node name="Table" parent="." instance=ExtResource("1_cd4rv")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Table"]
+collision_layer = 2
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Table/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+shape = SubResource("BoxShape3D_bhtft")
+
+[node name="Pedestal1" parent="Table" instance=ExtResource("2_r7v1e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.607451, 0.8, -0.0115496)
+
+[node name="Pedestal2" parent="Table" instance=ExtResource("2_r7v1e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17987, 0.8, -0.0115496)
+
+[node name="ScreenStand" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0.401171, 0.81, -0.150948)
+mesh = ExtResource("2_cf5iy")
+
+[node name="Viewport2Din3D" parent="ScreenStand" instance=ExtResource("2_n6so6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+screen_size = Vector2(1, 1)
+scene = ExtResource("3_gxc1y")
+viewport_size = Vector2(800, 800)
+alpha_scissor_threshold = 0.59
+unshaded = true
+scene_properties_keys = PackedStringArray("menu_exhibits.gd")

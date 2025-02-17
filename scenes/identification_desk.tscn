@@ -1,0 +1,67 @@
+[gd_scene load_steps=12 format=3 uid="uid://bci3aa5tqvs3t"]
+
+[ext_resource type="Script" path="res://scenes/identification_desk.gd" id="1_1q4jw"]
+[ext_resource type="PackedScene" uid="uid://xjows4duh5bi" path="res://assets/props/table_modern.glb" id="1_ier53"]
+[ext_resource type="PackedScene" uid="uid://cuv5voejssevw" path="res://assets/props/scale.tscn" id="2_hj10l"]
+[ext_resource type="BoxMesh" uid="uid://oh8s876iq2pl" path="res://assets/props/screen_stand_mesh.tres" id="3_c4pk7"]
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="4_fv2eg"]
+[ext_resource type="Material" uid="uid://bkorf4g4jdnpo" path="res://assets/props/pedestal.tres" id="4_w3qya"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.gd" id="5_sov04"]
+[ext_resource type="PackedScene" uid="uid://do4js8mw7dro6" path="res://assets/props/snap_identify.tscn" id="8_jmdtq"]
+[ext_resource type="PackedScene" uid="uid://k6t08gtnn6ts" path="res://assets/ui/menu_information.tscn" id="9_yh45h"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bhtft"]
+size = Vector3(2.02, 0.8, 0.75)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_1d4hc"]
+material = ExtResource("4_w3qya")
+top_radius = 0.1
+bottom_radius = 0.1
+height = 0.01
+
+[node name="IdentificationDesk" type="Node3D"]
+script = ExtResource("1_1q4jw")
+
+[node name="Table" parent="." instance=ExtResource("1_ier53")]
+
+[node name="Table" parent="Table" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.5, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Table"]
+collision_layer = 2
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Table/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+shape = SubResource("BoxShape3D_bhtft")
+
+[node name="Scale" parent="Table" instance=ExtResource("2_hj10l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, 0.801, 0.35)
+
+[node name="SnapZone" parent="Table/Scale" instance=ExtResource("8_jmdtq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.002, -0.3)
+snap_mode = 1
+
+[node name="XRToolsHighlightRing" type="MeshInstance3D" parent="Table/Scale/SnapZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.005, 0)
+mesh = SubResource("CylinderMesh_1d4hc")
+skeleton = NodePath("")
+script = ExtResource("5_sov04")
+
+[node name="ScreenStand" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0.401171, 0.81, -0.150948)
+mesh = ExtResource("3_c4pk7")
+
+[node name="Viewport2Din3D" parent="ScreenStand" instance=ExtResource("4_fv2eg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.375, 0)
+screen_size = Vector2(1, 0.75)
+scene = ExtResource("9_yh45h")
+viewport_size = Vector2(1000, 750)
+alpha_scissor_threshold = 0.59
+unshaded = true
+scene_properties_keys = PackedStringArray("menu_information.gd")
+
+[connection signal="has_dropped" from="Table/Scale/SnapZone" to="." method="_on_snap_zone_has_dropped"]
+[connection signal="has_picked_up" from="Table/Scale/SnapZone" to="." method="_on_snap_zone_has_picked_up"]
+
+[editable path="Table"]
