@@ -30,6 +30,10 @@ window/size/viewport_height=900
 
 enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
 
+[filesystem]
+
+import/blender/enabled=false
+
 [global_group]
 
 Exhibits=""

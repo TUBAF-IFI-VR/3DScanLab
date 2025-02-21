@@ -46,3 +46,7 @@ func _on_xr_mode_changed(new_mode:XRInterface.EnvironmentBlendMode) -> void:
 		$Laboratory.visible = true
 	else:
 		$Laboratory.visible = false
+
+
+func _on_help_invisible_timer_timeout() -> void:
+	$HelpControls.visible = false

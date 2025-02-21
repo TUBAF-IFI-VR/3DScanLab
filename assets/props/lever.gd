@@ -45,6 +45,7 @@ func _on_lever_pickup_dropped(_pickable: Variant) -> void:
 	$AudioLeverSwitch.play()
 
 func status_change(status:bool) -> void:
+	$HelpLever.visible = false
 	if status == lever_status:
 		return
 		

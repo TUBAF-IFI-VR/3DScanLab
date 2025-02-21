@@ -1,15 +1,15 @@
 [gd_scene load_steps=4 format=3 uid="uid://kjf6uosvvoll"]
 
-[ext_resource type="Script" path="res://scripts/exhibit.gd" id="1_lv2pq"]
-[ext_resource type="PackedScene" uid="uid://dhinb74daodqh" path="res://assets/3dscans/inoceramus.glb" id="2_smadt"]
+[ext_resource type="Script" path="res://scripts/exhibit.gd" id="1_1tomc"]
+[ext_resource type="PackedScene" uid="uid://dhinb74daodqh" path="res://assets/3dscans/inoceramus.glb" id="2_wknmv"]
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_tvhgi"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_lesh1"]
 points = PackedVector3Array(-0.0810032, 0.002397, 0.0208851, 0.0714786, 0.221619, 0.00657775, 0.076226, 0.216839, 0.0113405, 0.0619541, 0.0214512, -0.0982596, 0.0905575, 0.0500653, 0.0542241, -0.13818, 0.0977117, 0.039936, -0.0810032, 0.111986, -0.0648822, -0.0286034, 0.102492, 0.097146, 0.114384, 0.0929536, -0.088715, 0.0285735, 0.21208, -0.0458313, 0.152512, 0.0643614, -0.0267613, 0.0238262, 0.002397, 0.0494805, -0.0905277, 0.0452853, -0.069645, 0.13818, 0.164412, 0.0113405, -0.133433, 0.0357473, 0.0542433, 0.0619541, -0.00238299, -0.0648822, 0.0810032, 0.126282, 0.0733133, -0.00474733, 0.0500434, 0.097146, 0.0619541, 0.111986, -0.0934777, -0.147705, 0.0548234, -0.00292857, 0.0571769, 0.216839, -0.0458313, 0.133433, 0.0309892, -0.0362676, 0.0476226, 0.216839, 0.0161223, -0.109577, 0.0881955, 0.078076, -0.0428752, 0.0262311, -0.0839523, -0.0810032, 0.0357473, 0.0828387, -0.128656, 0.102492, -0.0076913, 0.142957, 0.154874, -0.00771042, 0.019049, 0.145358, 0.078076, 0.0953049, 0.0738994, 0.0637687, -0.0905277, 0.00715505, -0.00292857, -0.0523998, 0.126282, 0.078076)
 
 [node name="Inoceramus" type="RigidBody3D" node_paths=PackedStringArray("scale_node") groups=["Exhibits"]]
 collision_layer = 4
 collision_mask = 131079
-script = ExtResource("1_lv2pq")
+script = ExtResource("1_1tomc")
 aabb = AABB(-0.0320636, -1.04682e-06, -0.0204583, 0.064145, 0.0472294, 0.0409029)
 custom_scale = 4.67691
 scale_node = NodePath("ScaleNode")
@@ -18,7 +18,7 @@ second_hand_grab = 1
 
 [node name="ScaleNode" type="Node3D" parent="."]
 
-[node name="inoceramus" type="Node3D" parent="ScaleNode" instance=ExtResource("2_smadt")]
+[node name="inoceramus" type="Node3D" parent="ScaleNode" instance=ExtResource("2_wknmv")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("ConvexPolygonShape3D_tvhgi")
+shape = SubResource("ConvexPolygonShape3D_lesh1")

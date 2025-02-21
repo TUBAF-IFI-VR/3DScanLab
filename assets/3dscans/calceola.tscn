@@ -1,15 +1,15 @@
 [gd_scene load_steps=4 format=3 uid="uid://ok8bh5ep48yu"]
 
-[ext_resource type="Script" path="res://scripts/exhibit.gd" id="1_rcflu"]
-[ext_resource type="PackedScene" uid="uid://dyvnyqd0y0wn3" path="res://assets/3dscans/calceola.glb" id="2_vxh44"]
+[ext_resource type="Script" path="res://scripts/exhibit.gd" id="1_40fpx"]
+[ext_resource type="PackedScene" uid="uid://dyvnyqd0y0wn3" path="res://assets/3dscans/calceola.glb" id="2_41pc4"]
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_m7apk"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5vy6e"]
 points = PackedVector3Array(-0.00827295, 0.0309229, -0.123617, 0.1296, 0.0404311, 0.123588, 0.1296, 0.0214147, 0.123588, -0.127127, 0.0451925, 0.0903151, 0.0202181, 0.145021, 0.0522767, 0.0487604, 0.0784351, -0.147388, -0.0891129, -0.00234855, 0.0237703, -0.074829, 0.121229, 0.0285065, 0.101058, 0.00238391, 0, 0.101058, 0.106974, 0.114085, 0.0772771, 0.0356698, 0.152154, -0.127127, 0.0499538, 0.0475405, 0.0725158, 0.0451925, -0.123617, 0.105819, 0.106974, 0.071281, -0.0272926, 0.14026, 0.0618087, -0.0891129, 0.0404311, 0.114115, 0.0154568, 0.0689557, -0.147388, 0.105819, 0.0118921, 0.123588, -0.0605706, 0.00239834, -0.0427746, -0.122365, 0.0166534, 0.0760768, 0.1296, 0.06418, 0.0903151, 0.110555, -0.00236297, 0.0522767, 0.0677545, 0.0499538, 0.152154, -0.041551, 0.135484, 0.0285065, 0.0582575, 0.135484, 0.0475405, 0.115316, 0.0166534, 0.0142681, -0.112868, 0.083182, 0.0380384, -0.112868, 0.083182, 0.0760768, -0.0938486, 0.0547007, 0.109349, 0.0392378, 0.14026, 0.080813, -0.0130343, 0.00239834, -0.0522767, 0.0630188, 0.0689557, -0.142622)
 
 [node name="Calceola" type="RigidBody3D" node_paths=PackedStringArray("scale_node") groups=["Exhibits"]]
 collision_layer = 4
 collision_mask = 131079
-script = ExtResource("1_rcflu")
+script = ExtResource("1_40fpx")
 aabb = AABB(-0.0159569, -9.07684e-07, -0.0185277, 0.0319149, 0.0173579, 0.0370553)
 custom_scale = 8.09601
 scale_node = NodePath("ScaleNode")
@@ -18,7 +18,7 @@ second_hand_grab = 1
 
 [node name="ScaleNode" type="Node3D" parent="."]
 
-[node name="calceola" type="Node3D" parent="ScaleNode" instance=ExtResource("2_vxh44")]
+[node name="calceola" type="Node3D" parent="ScaleNode" instance=ExtResource("2_41pc4")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("ConvexPolygonShape3D_m7apk")
+shape = SubResource("ConvexPolygonShape3D_5vy6e")

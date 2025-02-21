@@ -1,13 +1,24 @@
-[gd_scene load_steps=7 format=3 uid="uid://bla6hwam1g3ow"]
+[gd_scene load_steps=10 format=3 uid="uid://bla6hwam1g3ow"]
 
 [ext_resource type="PackedScene" uid="uid://xjows4duh5bi" path="res://assets/props/table_modern.glb" id="1_cd4rv"]
 [ext_resource type="BoxMesh" uid="uid://oh8s876iq2pl" path="res://assets/props/screen_stand_mesh.tres" id="2_cf5iy"]
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="2_n6so6"]
 [ext_resource type="PackedScene" uid="uid://bbmudmotbdy1b" path="res://assets/props/pedestal.tscn" id="2_r7v1e"]
 [ext_resource type="PackedScene" uid="uid://btrxqounurj6j" path="res://assets/ui/menu_exhibits.tscn" id="3_gxc1y"]
+[ext_resource type="Texture2D" uid="uid://cloyxi8ena4xv" path="res://assets/ui/help-spawn.png" id="6_k3jdm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bhtft"]
 size = Vector3(2.02, 0.8, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gm6u7"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.784314)
+albedo_texture = ExtResource("6_k3jdm")
+
+[sub_resource type="QuadMesh" id="QuadMesh_88uu8"]
+material = SubResource("StandardMaterial3D_gm6u7")
+size = Vector2(0.4, 0.257)
 
 [node name="SpawnDesk" type="Node3D"]
 
@@ -26,6 +37,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.607451, 0.8, -0.0115496)
 
 [node name="Pedestal2" parent="Table" instance=ExtResource("2_r7v1e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17987, 0.8, -0.0115496)
+
+[node name="HelpSpawn" type="MeshInstance3D" parent="Table"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.396, 1.4, -0.261)
+mesh = SubResource("QuadMesh_88uu8")
+skeleton = NodePath("../../../..")
 
 [node name="ScreenStand" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0.401171, 0.81, -0.150948)

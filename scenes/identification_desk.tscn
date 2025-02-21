@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bci3aa5tqvs3t"]
+[gd_scene load_steps=15 format=3 uid="uid://bci3aa5tqvs3t"]
 
 [ext_resource type="Script" path="res://scenes/identification_desk.gd" id="1_1q4jw"]
 [ext_resource type="PackedScene" uid="uid://xjows4duh5bi" path="res://assets/props/table_modern.glb" id="1_ier53"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.gd" id="5_sov04"]
 [ext_resource type="PackedScene" uid="uid://do4js8mw7dro6" path="res://assets/props/snap_identify.tscn" id="8_jmdtq"]
 [ext_resource type="PackedScene" uid="uid://k6t08gtnn6ts" path="res://assets/ui/menu_information.tscn" id="9_yh45h"]
+[ext_resource type="Texture2D" uid="uid://226rpst7day2" path="res://assets/ui/help-inspect.png" id="10_rbec8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bhtft"]
 size = Vector3(2.02, 0.8, 0.75)
@@ -18,6 +19,16 @@ material = ExtResource("4_w3qya")
 top_radius = 0.1
 bottom_radius = 0.1
 height = 0.01
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_or3xw"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.784314)
+albedo_texture = ExtResource("10_rbec8")
+
+[sub_resource type="QuadMesh" id="QuadMesh_ehgg5"]
+material = SubResource("StandardMaterial3D_or3xw")
+size = Vector2(0.4, 0.257)
 
 [node name="IdentificationDesk" type="Node3D"]
 script = ExtResource("1_1q4jw")
@@ -60,6 +71,11 @@ viewport_size = Vector2(1000, 750)
 alpha_scissor_threshold = 0.59
 unshaded = true
 scene_properties_keys = PackedStringArray("menu_information.gd")
+
+[node name="HelpInspection" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.327049, 1, -0.343175)
+mesh = SubResource("QuadMesh_ehgg5")
+skeleton = NodePath("../../..")
 
 [connection signal="has_dropped" from="Table/Scale/SnapZone" to="." method="_on_snap_zone_has_dropped"]
 [connection signal="has_picked_up" from="Table/Scale/SnapZone" to="." method="_on_snap_zone_has_picked_up"]

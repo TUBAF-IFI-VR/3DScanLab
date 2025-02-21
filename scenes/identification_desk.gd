@@ -12,6 +12,8 @@ func _on_snap_zone_has_picked_up(what: Variant) -> void:
 	if not what is Exhibit:
 		return
 	
+	$HelpInspection.visible = false
+	
 	var aabb : AABB = what.aabb
 	snap_zone.position = Vector3(0.05,0.002,-0.05) + Vector3(aabb.size.x*0.5, 0.0, -aabb.size.z*0.5)
 	what.scale_to_original()

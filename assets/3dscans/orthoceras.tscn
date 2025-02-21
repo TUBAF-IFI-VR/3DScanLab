@@ -1,15 +1,15 @@
 [gd_scene load_steps=4 format=3 uid="uid://bo1opqbixnrps"]
 
-[ext_resource type="Script" path="res://scripts/exhibit.gd" id="1_47kba"]
-[ext_resource type="PackedScene" uid="uid://c4xask1t0g6hh" path="res://assets/3dscans/orthoceras.glb" id="2_dtsr7"]
+[ext_resource type="Script" path="res://scripts/exhibit.gd" id="1_bkanb"]
+[ext_resource type="PackedScene" uid="uid://c4xask1t0g6hh" path="res://assets/3dscans/orthoceras.glb" id="2_t5svk"]
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_xyjyp"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_py6sd"]
 points = PackedVector3Array(0.0333548, 0.0833082, 0.0379372, -0.00948641, -0.00238068, -0.128625, -0.0237668, 0.00238721, -0.014382, 0.0476352, 0.0166704, 0.128437, -0.0380472, 0.0880761, 0.133209, 0.0190744, 0.0547418, -0.157201, -0.0285235, 0.0404894, -0.157201, -0.0428039, 0.026196, 0.133209, 0.0523919, 0.0785506, 0.133209, 0.0285878, 0.0214281, -0.161973, 0.0190744, -0.00238068, 0.128437, -0.00471944, 0.10237, 0.109377, -0.0142431, 0.0594995, -0.152458, 0.0143074, 0.00238721, -0.161973, 0.0571589, 0.045247, 0.137982, -0.0285235, 0.0166704, -0.161973, -0.0475709, 0.0642776, 0.104634, -0.0142431, -0.00238068, 0.0998612, 0.0428682, 0.0547418, -0.0334125, 0.0143074, 0.10237, 0.104634, 0.0428682, 0.0166704, -0.014382, 0.0333548, 0.00238721, 0.0617702, -0.0428039, 0.0214281, 0.0808008, 0.0381115, 0.0928338, 0.133209, 0.0476352, 0.045247, -0.00966905, -0.0380472, 0.0880761, 0.118922, 0.0143074, -0.00238068, -0.0905341, -0.0475709, 0.0404894, 0.0903161, 3.72719e-05, 0.045247, -0.166746, -0.0237668, 0.00714486, -0.161973, -0.0285235, 0.00714486, 0.123694, 3.72719e-05, 0.0642776, -0.133398)
 
 [node name="Orthoceras" type="RigidBody3D" node_paths=PackedStringArray("scale_node") groups=["Exhibits"]]
 collision_layer = 4
 collision_mask = 131079
-script = ExtResource("1_47kba")
+script = ExtResource("1_bkanb")
 aabb = AABB(-0.0175709, -1.31291e-06, -0.0640291, 0.0387295, 0.0382532, 0.116813)
 custom_scale = 2.56821
 scale_node = NodePath("ScaleNode")
@@ -18,7 +18,7 @@ second_hand_grab = 1
 
 [node name="ScaleNode" type="Node3D" parent="."]
 
-[node name="orthoceras" type="Node3D" parent="ScaleNode" instance=ExtResource("2_dtsr7")]
+[node name="orthoceras" type="Node3D" parent="ScaleNode" instance=ExtResource("2_t5svk")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("ConvexPolygonShape3D_xyjyp")
+shape = SubResource("ConvexPolygonShape3D_py6sd")

@@ -1,15 +1,15 @@
 [gd_scene load_steps=4 format=3 uid="uid://3emv1ong6ucg"]
 
-[ext_resource type="Script" path="res://scripts/exhibit.gd" id="1_7kapc"]
-[ext_resource type="PackedScene" uid="uid://tjrx6fwqu4rm" path="res://assets/3dscans/amaltheus.glb" id="2_4rs4e"]
+[ext_resource type="Script" path="res://scripts/exhibit.gd" id="1_apx6o"]
+[ext_resource type="PackedScene" uid="uid://tjrx6fwqu4rm" path="res://assets/3dscans/amaltheus.glb" id="2_2gg8m"]
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_6ubtj"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_h0gwc"]
 points = PackedVector3Array(0.104833, 0.202458, -0.0722562, -0.13812, 0.00716886, -0.0103228, -0.13812, 0.00716886, -0.000819342, 0.133423, -0.00238217, -0.0103228, -0.0618692, 0.0548046, 0.0992137, -0.0142633, 0.302534, -0.0484439, -0.00471508, 0.00716886, -0.0960685, 0.0905508, 0.0119444, 0.0896888, 0.114381, 0.126288, -0.110399, -0.0428268, 0.250093, -0.0722562, -0.109502, 0.00716886, 0.103976, 4.5514e-05, 0.278657, -0.0150853, 0.0667208, 0.240572, -0.110399, 0.114381, -0.00238217, -0.0817811, -0.076178, 0.0310166, -0.0770401, 0.0476785, 0.083398, 0.0849263, -0.0618692, 0.226275, -0.0341565, 0.0238485, -0.00238217, 0.103976, -0.128572, -0.00238217, -0.0198477, 0.0286091, 0.288208, -0.038919, -0.109502, 0.0262112, 0.103976, 0.123902, 0.0738768, 0.00392166, 0.138211, 0.0500589, -0.0674937, -0.0189968, 0.273941, -0.0103228, -0.13812, 0.0310166, 0.00870557, 0.0857902, 0.0738768, 0.0610926, -0.13812, 0.0262112, -0.0150853, 0.114381, 0.0595801, -0.105615, 0.100072, 0.216754, -0.100852, 0.0143002, 0.302534, -0.0674937, -0.0285451, -0.00238217, -0.086565, 0.0429179, 0.240572, -0.105615)
 
 [node name="Amaltheus" type="RigidBody3D" node_paths=PackedStringArray("scale_node") groups=["Exhibits"]]
 collision_layer = 4
 collision_mask = 131079
-script = ExtResource("1_7kapc")
+script = ExtResource("1_apx6o")
 aabb = AABB(-0.028361, 7.90002e-06, -0.0225664, 0.0567263, 0.0627681, 0.0451356)
 custom_scale = 4.77949
 scale_node = NodePath("ScaleNode")
@@ -18,7 +18,7 @@ second_hand_grab = 1
 
 [node name="ScaleNode" type="Node3D" parent="."]
 
-[node name="amaltheus" type="Node3D" parent="ScaleNode" instance=ExtResource("2_4rs4e")]
+[node name="amaltheus" type="Node3D" parent="ScaleNode" instance=ExtResource("2_2gg8m")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("ConvexPolygonShape3D_6ubtj")
+shape = SubResource("ConvexPolygonShape3D_h0gwc")

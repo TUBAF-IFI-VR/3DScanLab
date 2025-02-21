@@ -1,13 +1,24 @@
-[gd_scene load_steps=7 format=3 uid="uid://wanq0mg1ytrw"]
+[gd_scene load_steps=10 format=3 uid="uid://wanq0mg1ytrw"]
 
 [ext_resource type="PackedScene" uid="uid://xjows4duh5bi" path="res://assets/props/table_modern.glb" id="1_36etv"]
 [ext_resource type="PackedScene" uid="uid://bgtv7abelciyk" path="res://assets/props/lever.tscn" id="2_ctfil"]
 [ext_resource type="BoxMesh" uid="uid://oh8s876iq2pl" path="res://assets/props/screen_stand_mesh.tres" id="3_k3tjv"]
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="4_lgkkp"]
 [ext_resource type="PackedScene" uid="uid://dxsjyb81ylok3" path="res://assets/ui/menu_status.tscn" id="5_c6smn"]
+[ext_resource type="Texture2D" uid="uid://dbolyedq1bd68" path="res://assets/ui/help-lever.png" id="6_yj8wu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bhtft"]
 size = Vector3(2.02, 0.8, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iyxma"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.784314)
+albedo_texture = ExtResource("6_yj8wu")
+
+[sub_resource type="QuadMesh" id="QuadMesh_6tmwj"]
+material = SubResource("StandardMaterial3D_iyxma")
+size = Vector2(0.4, 0.257)
 
 [node name="Controldesk" type="Node3D"]
 transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, 2.552, 0, -0.644)
@@ -24,6 +35,11 @@ shape = SubResource("BoxShape3D_bhtft")
 
 [node name="Lever" parent="Table" instance=ExtResource("2_ctfil")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.580698, 0.8, 0.0150697)
+
+[node name="HelpLever" type="MeshInstance3D" parent="Table/Lever"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0021016, 0.2, -0.259171)
+mesh = SubResource("QuadMesh_6tmwj")
+skeleton = NodePath("../../..")
 
 [node name="ScreenStand" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.206357, 0.81, -0.155861)

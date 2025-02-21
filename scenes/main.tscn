@@ -1,7 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://03drxon1vhj7"]
+[gd_scene load_steps=21 format=3 uid="uid://03drxon1vhj7"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_six4i"]
-[ext_resource type="Texture2D" uid="uid://drltpakpbfea3" path="res://assets/environment/lakeside_night_8k.hdr" id="2_wnjy0"]
+[ext_resource type="Texture2D" uid="uid://cyr1sufhy8clx" path="res://assets/environment/lakeside_night.jpg" id="2_wnjy0"]
 [ext_resource type="PackedScene" uid="uid://cjmoo2feiu7de" path="res://scenes/laboratory.tscn" id="3_3dhs2"]
 [ext_resource type="PackedScene" uid="uid://bx1xdisoqo1f6" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_tac_glove_low.tscn" id="3_o3f6f"]
 [ext_resource type="Material" uid="uid://dogla70w8hvo8" path="res://addons/godot-xr-tools/hands/materials/glove_caucasian_dark_camo.tres" id="4_a038j"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bla6hwam1g3ow" path="res://scenes/spawn_desk.tscn" id="12_fbro3"]
 [ext_resource type="PackedScene" uid="uid://bci3aa5tqvs3t" path="res://scenes/identification_desk.tscn" id="14_0bgsl"]
 [ext_resource type="PackedScene" uid="uid://wanq0mg1ytrw" path="res://scenes/controldesk.tscn" id="14_c3siw"]
+[ext_resource type="Texture2D" uid="uid://ty6kxn73aa0v" path="res://assets/ui/controls.png" id="15_0sqj5"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_eoyqv"]
 panorama = ExtResource("2_wnjy0")
@@ -24,9 +25,21 @@ sky_material = SubResource("PanoramaSkyMaterial_eoyqv")
 
 [sub_resource type="Environment" id="Environment_morp8"]
 background_mode = 2
+background_energy_multiplier = 3.0
 sky = SubResource("Sky_iqwrh")
-ambient_light_sky_contribution = 0.1
-tonemap_mode = 2
+ambient_light_sky_contribution = 0.5
+tonemap_mode = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b6ao7"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.733333)
+albedo_texture = ExtResource("15_0sqj5")
+
+[sub_resource type="QuadMesh" id="QuadMesh_mj7ke"]
+material = SubResource("StandardMaterial3D_b6ao7")
+size = Vector2(1.2, 0.9)
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_six4i")
@@ -44,7 +57,7 @@ directional_shadow_mode = 1
 directional_shadow_max_distance = 20.0
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5.2, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4.72442, 0)
 light_energy = 2.0
 shadow_enabled = true
 spot_range = 16.0
@@ -107,3 +120,14 @@ transform = Transform3D(0.298225, 0, -0.954495, 0, 1, 0, 0.954495, 0, 0.298225, 
 
 [node name="IdentificationDesk" parent="." instance=ExtResource("14_0bgsl")]
 transform = Transform3D(0.219165, 0, 0.975688, 0, 1, 0, -0.975688, 0, 0.219165, -1.83545, 1.19209e-07, -0.418336)
+
+[node name="HelpControls" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.2, 2)
+mesh = SubResource("QuadMesh_mj7ke")
+
+[node name="HelpInvisibleTimer" type="Timer" parent="."]
+wait_time = 90.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="HelpInvisibleTimer" to="." method="_on_help_invisible_timer_timeout"]

@@ -2,8 +2,5 @@
 .godot/
 /android/
 
-*.jpg.import
-*.png.import
-
 # macOS ignores
 .DS_STORE

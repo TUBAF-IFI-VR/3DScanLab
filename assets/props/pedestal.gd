@@ -14,3 +14,4 @@ func _on_snap_spawn_has_picked_up(what: Variant) -> void:
 
 func _on_snap_spawn_has_dropped() -> void:
 	empty = true
+	$"../HelpSpawn".visible = false
