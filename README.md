@@ -3,6 +3,8 @@ This Godot project represents a template for the visualization and inspection of
 
 The project is intended for use with VR headsets and supports AR via passthorugh. It includes the Godot XR tools for interactivity. No additional addons are required.
 
+In its current version, the project is developed with Goodt 4.3. An upgraded version for Godot 4.4 already exists. Checkout the Godot4.4 branch to try it.
+
 ## How to use
 Clone the repository and adjust the main scene to your requirements. A collection of 3D scanned fossils is provided for an example use case. The project has been tested on Pico 4E and Pico 4 Ultra headsets. If you are using SteamVR and your headset is already set up, you can just hit the play button. To deploy to standalone headsets (Meta, Pico, HTC Focus), you will have to follow these steps:
 
@@ -12,4 +14,4 @@ Clone the repository and adjust the main scene to your requirements. A collectio
 4. Build an APK or run your application directly via USB cable using the Remote Debug button.
 
 ## How to adjust
-The asset directory contains the JSON file describing the current collection of 3D models. You can insert new models to the JSON array and add the 3D models to the project folder.
+The asset directory contains the JSON file describing the current collection of 3D models. You can insert new models to the JSON array and add the 3D models to the project folder. To trigger the automatic scene generation for your collection of 3D models, open the tools/importer.tscn scene in the Godot editor. Updating the library file in the importer's root node properties will also trigger the import script.
