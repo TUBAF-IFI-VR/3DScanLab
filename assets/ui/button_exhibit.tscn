@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ctcj31mc3ook0"]
 
-[ext_resource type="Script" path="res://assets/ui/button_exhibit.gd" id="1_ynldp"]
+[ext_resource type="Script" uid="uid://bfyl2i2s6ip04" path="res://assets/ui/button_exhibit.gd" id="1_ynldp"]
 [ext_resource type="Texture2D" uid="uid://qvforv1l1kyt" path="res://assets/3dscans/calceola.png" id="2_46fv0"]
 
 [node name="ButtonExhibit" type="Button"]

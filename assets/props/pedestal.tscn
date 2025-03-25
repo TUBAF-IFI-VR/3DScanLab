@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bbmudmotbdy1b"]
 
-[ext_resource type="Script" path="res://assets/props/pedestal.gd" id="1_8t703"]
+[ext_resource type="Script" uid="uid://mylu7rr3ahfe" path="res://assets/props/pedestal.gd" id="1_8t703"]
 [ext_resource type="Material" uid="uid://mek8rus6link" path="res://assets/props/Metal045.tres" id="1_fxdgk"]
 [ext_resource type="Material" uid="uid://bkorf4g4jdnpo" path="res://assets/props/pedestal.tres" id="2_rs8i7"]
 [ext_resource type="PackedScene" uid="uid://ddkgqxdf1rj6g" path="res://assets/props/snap_spawn.tscn" id="4_umtyr"]
