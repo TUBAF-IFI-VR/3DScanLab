@@ -6,6 +6,8 @@ The project is intended for use with VR headsets and supports AR via passthorugh
 In its current version, the project is developed with Goodt 4.3. An upgraded version for Godot 4.4 already exists. Checkout the Godot4.4 branch to try it.
 
 ## How to use
+**Important:** The binary assets are partially stored using Git LFS (Large File Storage). Make sure you have Git LFS installed, otherwise not all assets will be pulled from the repository.
+
 Clone the repository and adjust the main scene to your requirements. A collection of 3D scanned fossils is provided for an example use case. The project has been tested on Pico 4E and Pico 4 Ultra headsets. If you are using SteamVR and your headset is already set up, you can just hit the play button. To deploy to standalone headsets (Meta, Pico, HTC Focus), you will have to follow these steps:
 
 1. Prepare your computer for Android deployment: [Deploying to Android](https://docs.godotengine.org/en/stable/tutorials/xr/deploying_to_android.html). Android Studio is not required. A commandline setup works as well.
