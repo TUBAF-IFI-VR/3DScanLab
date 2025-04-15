@@ -20,10 +20,11 @@ func _process(_delta: float) -> void:
 		var lever_pickup_local = lever_pivot.to_local(lever_pickup_pos)
 
 		var pullback = max(0.0, lever_pickup_local.z)
-		if pullback < max_lever_pullback:
-			lever_handle.rotation.x = min_lever_rotation + abs_lever_rotation*(pullback/max_lever_pullback)
-		else:
-			lever_pickup.picked_up_by.drop_object()
+		pullback = min(pullback, max_lever_pullback)
+		#if pullback < max_lever_pullback:
+		lever_handle.rotation.x = min_lever_rotation + abs_lever_rotation*(pullback/max_lever_pullback)
+		#else:
+		#	lever_pickup.get_picked_up_by().drop_object()
 		
 		var dist = abs(lever_handle.rotation.x-thresh_lever_rotation)
 		if dist < 0.3 and abs(dist-lever_last_position) > 0.1:
