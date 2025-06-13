@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://03drxon1vhj7"]
 
-[ext_resource type="Script" path="res://scenes/main.gd" id="1_six4i"]
+[ext_resource type="Script" uid="uid://7wv5gu5l1wvr" path="res://scenes/main.gd" id="1_six4i"]
 [ext_resource type="Texture2D" uid="uid://cyr1sufhy8clx" path="res://assets/environment/lakeside_night.jpg" id="2_wnjy0"]
 [ext_resource type="PackedScene" uid="uid://cjmoo2feiu7de" path="res://scenes/laboratory.tscn" id="3_3dhs2"]
 [ext_resource type="PackedScene" uid="uid://bx1xdisoqo1f6" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_tac_glove_low.tscn" id="3_o3f6f"]

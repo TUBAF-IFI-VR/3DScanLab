@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dxsjyb81ylok3"]
 
-[ext_resource type="Script" path="res://assets/ui/menu_status.gd" id="1_8v74s"]
+[ext_resource type="Script" uid="uid://dsdwlga6v56xi" path="res://assets/ui/menu_status.gd" id="1_8v74s"]
 [ext_resource type="Theme" uid="uid://b2saqaygajeis" path="res://assets/ui/menu_lab.theme" id="1_ea82i"]
 
 [node name="MenuExhibits" type="Panel"]
