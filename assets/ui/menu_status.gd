@@ -8,7 +8,7 @@ extends Panel
 @onready var label_xrmode : Label = find_child("LabelXRMode")
 
 const refresh_rate = 1.0
-var last_refresh = 100.0
+var timer : Timer
 
 func _ready() -> void:
 	var xr_interface:XRInterface = XRServer.primary_interface
@@ -21,21 +21,28 @@ func _ready() -> void:
 		else:
 			color_passthrough.color = Color(1.0, 0.0, 0.0)
 			label_passthrough.text = "Passthrough unavailable"
-		
-		if xr_interface.environment_blend_mode in \
-			[XRInterface.XR_ENV_BLEND_MODE_ALPHA_BLEND, XRInterface.XR_ENV_BLEND_MODE_ADDITIVE]:
-			color_xrmode.color = Color(0.0, 1.0, 0.0)
-			label_xrmode.text = "AR mode"
-		else:
-			color_xrmode.color = Color(1.0, 0.0, 0.0)
-			label_xrmode.text = "VR mode"
+			
+		xr_mode_changed(xr_interface.environment_blend_mode)
+	
+	Library.xr_mode_changed.connect(self.xr_mode_changed)
+	
+	timer = Timer.new()
+	add_child(timer)
+	timer.wait_time = refresh_rate
+	timer.timeout.connect(self.refresh)
+	timer.start()
 
 func _process(delta: float) -> void:
-	if last_refresh >= refresh_rate:
-		last_refresh = 0.0
-		refresh()
+	pass
+	
+func xr_mode_changed(new_mode:XRInterface.EnvironmentBlendMode):
+	if new_mode in \
+			[XRInterface.XR_ENV_BLEND_MODE_ALPHA_BLEND, XRInterface.XR_ENV_BLEND_MODE_ADDITIVE]:
+		color_xrmode.color = Color(0.0, 1.0, 0.0)
+		label_xrmode.text = "AR mode"
 	else:
-		last_refresh += delta
+		color_xrmode.color = Color(1.0, 0.0, 0.0)
+		label_xrmode.text = "VR mode"
 
 func refresh() -> void:
 	var fps = Engine.get_frames_per_second()
