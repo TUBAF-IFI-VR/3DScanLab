@@ -18,5 +18,10 @@ Clone the repository and adjust the main scene to your requirements. A collectio
 ## How to adjust
 The asset directory contains the JSON file describing the current collection of 3D models. You can insert new models to the JSON array and add the 3D models to the project folder. To trigger the automatic scene generation for your collection of 3D models, open the tools/importer.tscn scene in the Godot editor. Updating the library file in the importer's root node properties will also trigger the import script.
 
+## Publications
+The 3D scan lab is referenced in the following publications which include some background information:
+- [XR-Authoring und Nutzertests](https://doi.org/10.1007/978-3-662-72309-8_10) - Chapter in a German XR textbook (English version follows)
+- [3D Digitization and Immersive XR Applications for Paleontology Education](https://doi.org/10.1007/978-3-031-97769-5_19)
+
 ## Asset License
 All third party assets are licensed as CC0. Check the [asset-sources.md](asset-sources.md) file for weblinks to the original sources.
