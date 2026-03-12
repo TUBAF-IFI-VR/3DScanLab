@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://03drxon1vhj7"]
+[gd_scene format=3 uid="uid://03drxon1vhj7"]
 
 [ext_resource type="Script" uid="uid://7wv5gu5l1wvr" path="res://scenes/main.gd" id="1_six4i"]
 [ext_resource type="Texture2D" uid="uid://cyr1sufhy8clx" path="res://assets/environment/lakeside_night.jpg" id="2_wnjy0"]
@@ -41,14 +41,14 @@ albedo_texture = ExtResource("15_0sqj5")
 material = SubResource("StandardMaterial3D_b6ao7")
 size = Vector2(1.2, 0.9)
 
-[node name="Main" type="Node3D"]
+[node name="Main" type="Node3D" unique_id=1994848536]
 script = ExtResource("1_six4i")
 library_file = "res://assets/exhibits.json"
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1841291767]
 environment = SubResource("Environment_morp8")
 
-[node name="Sun" type="DirectionalLight3D" parent="."]
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=1424430304]
 transform = Transform3D(0.819152, 0.32899, -0.469847, 0, 0.819152, 0.573577, 0.573576, -0.469846, 0.67101, 0, 4, 0)
 light_color = Color(1, 0.923043, 0.831188, 1)
 light_energy = 0.5
@@ -56,7 +56,7 @@ shadow_enabled = true
 directional_shadow_mode = 1
 directional_shadow_max_distance = 20.0
 
-[node name="SpotLight3D" type="SpotLight3D" parent="."]
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1587471500]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4.72442, 0)
 light_energy = 2.0
 shadow_enabled = true
@@ -64,68 +64,68 @@ spot_range = 16.0
 spot_angle = 70.0
 spot_angle_attenuation = 0.366021
 
-[node name="Laboratory" parent="." instance=ExtResource("3_3dhs2")]
+[node name="Laboratory" parent="." unique_id=127878073 instance=ExtResource("3_3dhs2")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 
-[node name="XROrigin3D" type="XROrigin3D" parent="."]
+[node name="XROrigin3D" type="XROrigin3D" parent="." unique_id=1645486964]
 
-[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D" unique_id=987057154]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 
-[node name="ControllerLeft" type="XRController3D" parent="XROrigin3D"]
+[node name="ControllerLeft" type="XRController3D" parent="XROrigin3D" unique_id=1037979748]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 1, 0)
 tracker = &"left_hand"
 pose = &"aim"
 
-[node name="LeftHand" parent="XROrigin3D/ControllerLeft" instance=ExtResource("3_o3f6f")]
+[node name="LeftHand" parent="XROrigin3D/ControllerLeft" unique_id=1637314612 instance=ExtResource("3_o3f6f")]
 hand_material_override = ExtResource("4_a038j")
 
-[node name="FunctionTeleport" parent="XROrigin3D/ControllerLeft" instance=ExtResource("8_okso4")]
+[node name="FunctionTeleport" parent="XROrigin3D/ControllerLeft" unique_id=111153405 instance=ExtResource("8_okso4")]
 collision_mask = 1019
 valid_teleport_mask = 4294967289
 
-[node name="FunctionPickup" parent="XROrigin3D/ControllerLeft" instance=ExtResource("9_1kpxa")]
+[node name="FunctionPickup" parent="XROrigin3D/ControllerLeft" unique_id=591727225 instance=ExtResource("9_1kpxa")]
 grab_distance = 0.1
 ranged_enable = false
 ranged_distance = 2.0
 
-[node name="ControllerRight" type="XRController3D" parent="XROrigin3D"]
+[node name="ControllerRight" type="XRController3D" parent="XROrigin3D" unique_id=1663469477]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 1, 0)
 tracker = &"right_hand"
 
-[node name="RightHand" parent="XROrigin3D/ControllerRight" instance=ExtResource("5_gpuhf")]
+[node name="RightHand" parent="XROrigin3D/ControllerRight" unique_id=1156616886 instance=ExtResource("5_gpuhf")]
 hand_material_override = ExtResource("4_a038j")
 
-[node name="FunctionPointer" parent="XROrigin3D/ControllerRight" instance=ExtResource("6_2s2lo")]
+[node name="FunctionPointer" parent="XROrigin3D/ControllerRight" unique_id=151896737 instance=ExtResource("6_2s2lo")]
 distance = 2.0
 laser_length = 1
 show_target = true
 
-[node name="FunctionPickup" parent="XROrigin3D/ControllerRight" instance=ExtResource("9_1kpxa")]
+[node name="FunctionPickup" parent="XROrigin3D/ControllerRight" unique_id=1493534864 instance=ExtResource("9_1kpxa")]
 grab_distance = 0.1
 ranged_enable = false
 ranged_distance = 2.0
 
-[node name="PlayerBody" parent="XROrigin3D" instance=ExtResource("11_oy7da")]
+[node name="PlayerBody" parent="XROrigin3D" unique_id=1807459874 instance=ExtResource("11_oy7da")]
 collision_mask = 1017
 player_calibrate_height = false
 
-[node name="StartXR" parent="." instance=ExtResource("7_dpepp")]
+[node name="StartXR" parent="." unique_id=867704499 instance=ExtResource("7_dpepp")]
 
-[node name="SpawnDesk" parent="." instance=ExtResource("12_fbro3")]
+[node name="SpawnDesk" parent="." unique_id=1499216190 instance=ExtResource("12_fbro3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 
-[node name="Controldesk" parent="." instance=ExtResource("14_c3siw")]
+[node name="Controldesk" parent="." unique_id=1728850900 instance=ExtResource("14_c3siw")]
 transform = Transform3D(0.298225, 0, -0.954495, 0, 1, 0, 0.954495, 0, 0.298225, 2.20179, 0, -0.237573)
 
-[node name="IdentificationDesk" parent="." instance=ExtResource("14_0bgsl")]
+[node name="IdentificationDesk" parent="." unique_id=1616530271 instance=ExtResource("14_0bgsl")]
 transform = Transform3D(0.219165, 0, 0.975688, 0, 1, 0, -0.975688, 0, 0.219165, -1.83545, 1.19209e-07, -0.418336)
 
-[node name="HelpControls" type="MeshInstance3D" parent="."]
+[node name="HelpControls" type="MeshInstance3D" parent="." unique_id=1374584306]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.2, 2)
 mesh = SubResource("QuadMesh_mj7ke")
 
-[node name="HelpInvisibleTimer" type="Timer" parent="."]
+[node name="HelpInvisibleTimer" type="Timer" parent="." unique_id=269509843]
 wait_time = 90.0
 one_shot = true
 autostart = true

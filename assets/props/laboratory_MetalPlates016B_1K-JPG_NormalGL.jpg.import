@@ -10,7 +10,7 @@ metadata={
 "vram_texture": true
 }
 generator_parameters={
-"md5": "4ff2b0b3ea9cd25a23aed021595ff4dd"
+"md5": "773e7ce0c6e95afb59dc81ce2cf0cbf9"
 }
 
 [deps]
@@ -23,6 +23,8 @@ dest_files=["res://.godot/imported/laboratory_MetalPlates016B_1K-JPG_NormalGL.jp
 compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=1
 compress/channel_pack=0
@@ -30,6 +32,10 @@ mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=1
 roughness/src_normal="res://assets/props/laboratory_MetalPlates016B_1K-JPG_NormalGL.jpg"
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false
