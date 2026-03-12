@@ -3,7 +3,7 @@ This Godot project represents a template for the visualization and inspection of
 
 The project is intended for use with VR headsets and supports AR via passthorugh. It includes the Godot XR tools for interactivity. No additional addons are required.
 
-Currently the project is being developed with Godot vesion 4.4.1.
+Currently the project is being developed with Godot version 4.4.1.
 
 ## How to use
 **Important:** The binary assets are partially stored using Git LFS (Large File Storage). Make sure you have Git LFS installed, otherwise not all assets will be pulled from the repository.
