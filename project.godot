@@ -21,8 +21,8 @@ config/icon="res://icon.png"
 
 [autoload]
 
-XRToolsUserSettings="*uid://c2wvrn4iyhxn1"
-XRToolsRumbleManager="*uid://dsxt01p8w110l"
+XRToolsUserSettings="*uid://bqgb8i74tm0t"
+XRToolsRumbleManager="*uid://by853dk86g1qw"
 Library="*res://scripts/library.gd"
 
 [debug]

@@ -6,7 +6,7 @@
 [ext_resource type="BoxMesh" uid="uid://oh8s876iq2pl" path="res://assets/props/screen_stand_mesh.tres" id="3_c4pk7"]
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="4_fv2eg"]
 [ext_resource type="Material" uid="uid://bkorf4g4jdnpo" path="res://assets/props/pedestal.tres" id="4_w3qya"]
-[ext_resource type="Script" uid="uid://cxqpp7g3eqmho" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.gd" id="5_sov04"]
+[ext_resource type="Script" uid="uid://b8waaso7b6bsr" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.gd" id="5_sov04"]
 [ext_resource type="PackedScene" uid="uid://do4js8mw7dro6" path="res://assets/props/snap_identify.tscn" id="8_jmdtq"]
 [ext_resource type="PackedScene" uid="uid://k6t08gtnn6ts" path="res://assets/ui/menu_information.tscn" id="9_yh45h"]
 [ext_resource type="Texture2D" uid="uid://226rpst7day2" path="res://assets/ui/help-inspect.png" id="10_rbec8"]
@@ -67,6 +67,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.375, 0)
 screen_size = Vector2(1, 0.75)
 scene = ExtResource("9_yh45h")
 viewport_size = Vector2(1000, 750)
+transparent = 1
 alpha_scissor_threshold = 0.59
 unshaded = true
 scene_properties_keys = PackedStringArray("menu_information.gd")
