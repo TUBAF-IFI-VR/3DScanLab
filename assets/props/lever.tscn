@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bgtv7abelciyk"]
+[gd_scene format=3 uid="uid://bgtv7abelciyk"]
 
 [ext_resource type="PackedScene" uid="uid://bol5rj5tmk5tw" path="res://assets/props/lever.glb" id="1_p8nfh"]
 [ext_resource type="Script" uid="uid://nbjom5i0h6gw" path="res://assets/props/lever.gd" id="2_0dn6h"]
@@ -29,16 +29,16 @@ script = ExtResource("7_x0j70")
 open_pose = ExtResource("9_ea736")
 closed_pose = ExtResource("9_ea736")
 
-[node name="Lever" instance=ExtResource("1_p8nfh")]
+[node name="Lever" unique_id=458017766 instance=ExtResource("1_p8nfh")]
 script = ExtResource("2_0dn6h")
 
-[node name="GrabTarget" type="Node3D" parent="LeverHandle" index="0"]
+[node name="GrabTarget" type="Node3D" parent="LeverHandle" parent_id_path=PackedInt32Array(866652416) index="0" unique_id=99075688]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13, 0)
 
-[node name="LeverPivot" type="Node3D" parent="." index="2"]
+[node name="LeverPivot" type="Node3D" parent="." index="2" unique_id=21937547]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.065, -0.113)
 
-[node name="LeverPickup" type="RigidBody3D" parent="LeverPivot" index="0"]
+[node name="LeverPickup" type="RigidBody3D" parent="LeverPivot" index="0" unique_id=1041461164]
 collision_layer = 4
 collision_mask = 131072
 gravity_scale = 0.0
@@ -47,36 +47,36 @@ script = ExtResource("2_eyj28")
 release_mode = 1
 ranged_grab_method = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="LeverPivot/LeverPickup" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LeverPivot/LeverPickup" index="0" unique_id=535177748]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("CylinderShape3D_conhg")
 
-[node name="HighlightRing" parent="LeverPivot/LeverPickup" index="1" instance=ExtResource("5_t2eln")]
+[node name="HighlightRing" parent="LeverPivot/LeverPickup" index="1" unique_id=2097308991 instance=ExtResource("5_t2eln")]
 
-[node name="GrabPointHandLeft" parent="LeverPivot/LeverPickup" index="2" instance=ExtResource("5_q37lt")]
+[node name="GrabPointHandLeft" parent="LeverPivot/LeverPickup" index="2" unique_id=113802581 instance=ExtResource("5_q37lt")]
 transform = Transform3D(-0.180519, 0.983571, 0, -0.983571, -0.180519, 0, 0, 0, 1, 0.05, -0.023, -0.08)
 visible = true
 hand_pose = SubResource("Resource_xg510")
 
-[node name="GrabPointHandRight" parent="LeverPivot/LeverPickup" index="3" instance=ExtResource("6_mn0kn")]
+[node name="GrabPointHandRight" parent="LeverPivot/LeverPickup" index="3" unique_id=471060188 instance=ExtResource("6_mn0kn")]
 transform = Transform3D(-0.180124, -0.983644, 0, 0.983644, -0.180124, 0, 0, 0, 1, -0.05, -0.0231762, -0.0799801)
 visible = true
 hand_pose = SubResource("Resource_wank1")
 
-[node name="TimerSwitch" type="Timer" parent="." index="3"]
+[node name="TimerSwitch" type="Timer" parent="." index="3" unique_id=724237895]
 wait_time = 0.4
 one_shot = true
 
-[node name="AudioLeverSwitch" type="AudioStreamPlayer3D" parent="." index="4"]
+[node name="AudioLeverSwitch" type="AudioStreamPlayer3D" parent="." index="4" unique_id=1942380010]
 stream = ExtResource("5_wfa6k")
 
-[node name="AudioLeverGrab" type="AudioStreamPlayer3D" parent="." index="5"]
+[node name="AudioLeverGrab" type="AudioStreamPlayer3D" parent="." index="5" unique_id=1629741955]
 stream = ExtResource("11_w7kfc")
 
-[node name="AudioLeverMove" type="AudioStreamPlayer3D" parent="." index="6"]
+[node name="AudioLeverMove" type="AudioStreamPlayer3D" parent="." index="6" unique_id=1444882776]
 stream = ExtResource("12_r06t4")
 
-[node name="AudioStatusChange" type="AudioStreamPlayer3D" parent="." index="7"]
+[node name="AudioStatusChange" type="AudioStreamPlayer3D" parent="." index="7" unique_id=217898193]
 stream = ExtResource("6_kfvq7")
 
 [connection signal="dropped" from="LeverPivot/LeverPickup" to="." method="_on_lever_pickup_dropped"]

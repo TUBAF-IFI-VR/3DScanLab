@@ -1,16 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://ctcj31mc3ook0"]
+[gd_scene format=3 uid="uid://ctcj31mc3ook0"]
 
 [ext_resource type="Script" uid="uid://bfyl2i2s6ip04" path="res://assets/ui/button_exhibit.gd" id="1_ynldp"]
 [ext_resource type="Texture2D" uid="uid://qvforv1l1kyt" path="res://assets/3dscans/calceola.png" id="2_46fv0"]
 
-[node name="ButtonExhibit" type="Button"]
+[node name="ButtonExhibit" type="Button" unique_id=1192158537]
 custom_minimum_size = Vector2(192, 192)
 offset_right = 128.0
 offset_bottom = 128.0
 script = ExtResource("1_ynldp")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 2
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2075705866]
+layout_mode = 0
 offset_left = 8.0
 offset_top = 8.0
 offset_right = 184.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cjmoo2feiu7de"]
+[gd_scene format=3 uid="uid://cjmoo2feiu7de"]
 
 [ext_resource type="PackedScene" uid="uid://4qfbg7agvb64" path="res://assets/props/laboratory.glb" id="1_h6x0k"]
 
@@ -11,21 +11,21 @@ size = Vector3(11, 0.1, 11)
 [sub_resource type="BoxShape3D" id="BoxShape3D_tq424"]
 size = Vector3(0.1, 2, 3)
 
-[node name="Laboratory" type="StaticBody3D"]
+[node name="Laboratory" type="StaticBody3D" unique_id=1473250516]
 
-[node name="laboratory_model" parent="." instance=ExtResource("1_h6x0k")]
+[node name="laboratory_model" parent="." unique_id=2045383866 instance=ExtResource("1_h6x0k")]
 
-[node name="CollisionBorder" type="CollisionShape3D" parent="."]
+[node name="CollisionBorder" type="CollisionShape3D" parent="." unique_id=1283361958]
 shape = SubResource("ConcavePolygonShape3D_cwipg")
 
-[node name="CollisionFloor" type="CollisionShape3D" parent="."]
+[node name="CollisionFloor" type="CollisionShape3D" parent="." unique_id=178747043]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 shape = SubResource("BoxShape3D_b3qie")
 
-[node name="CollisionDoor" type="CollisionShape3D" parent="."]
+[node name="CollisionDoor" type="CollisionShape3D" parent="." unique_id=681138900]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.81169, 1, 0)
 shape = SubResource("BoxShape3D_tq424")
 
-[node name="CollisionCeiling" type="CollisionShape3D" parent="."]
+[node name="CollisionCeiling" type="CollisionShape3D" parent="." unique_id=1493351798]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
 shape = SubResource("BoxShape3D_b3qie")

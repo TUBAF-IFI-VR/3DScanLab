@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://cuv5voejssevw"]
+[gd_scene format=3 uid="uid://cuv5voejssevw"]
 
 [ext_resource type="Material" uid="uid://eor7mw7r7os3" path="res://assets/props/scale_material.tres" id="1_3okmy"]
 
@@ -8,7 +8,7 @@ size = Vector2(0.7, 0.7)
 center_offset = Vector3(0.35, 0, -0.35)
 orientation = 1
 
-[node name="Scale" type="Node3D"]
+[node name="Scale" type="Node3D" unique_id=1566935346]
 
-[node name="Plane" type="MeshInstance3D" parent="."]
+[node name="Plane" type="MeshInstance3D" parent="." unique_id=1378647591]
 mesh = SubResource("QuadMesh_kc0e1")

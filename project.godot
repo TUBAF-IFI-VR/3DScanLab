@@ -25,6 +25,10 @@ XRToolsUserSettings="*uid://c2wvrn4iyhxn1"
 XRToolsRumbleManager="*uid://dsxt01p8w110l"
 Library="*res://scripts/library.gd"
 
+[debug]
+
+gdscript/warnings/unused_signal=0
+
 [display]
 
 window/size/viewport_width=1600

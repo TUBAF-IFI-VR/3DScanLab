@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bci3aa5tqvs3t"]
+[gd_scene format=3 uid="uid://bci3aa5tqvs3t"]
 
 [ext_resource type="Script" uid="uid://dfk4eft1rkrux" path="res://scenes/identification_desk.gd" id="1_1q4jw"]
 [ext_resource type="PackedScene" uid="uid://xjows4duh5bi" path="res://assets/props/table_modern.glb" id="1_ier53"]
@@ -30,40 +30,39 @@ albedo_texture = ExtResource("10_rbec8")
 material = SubResource("StandardMaterial3D_or3xw")
 size = Vector2(0.4, 0.257)
 
-[node name="IdentificationDesk" type="Node3D"]
+[node name="IdentificationDesk" type="Node3D" unique_id=1634894005]
 script = ExtResource("1_1q4jw")
 
-[node name="Table" parent="." instance=ExtResource("1_ier53")]
+[node name="Table" parent="." unique_id=386819063 instance=ExtResource("1_ier53")]
 
-[node name="Table" parent="Table" index="0"]
+[node name="Table" parent="Table" index="0" unique_id=2138007534]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.5, 0, 0, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Table"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Table" unique_id=641558393]
 collision_layer = 2
 collision_mask = 7
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Table/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Table/StaticBody3D" unique_id=263517031]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
 shape = SubResource("BoxShape3D_bhtft")
 
-[node name="Scale" parent="Table" instance=ExtResource("2_hj10l")]
+[node name="Scale" parent="Table" unique_id=1776774678 instance=ExtResource("2_hj10l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, 0.801, 0.35)
 
-[node name="SnapZone" parent="Table/Scale" instance=ExtResource("8_jmdtq")]
+[node name="SnapZone" parent="Table/Scale" unique_id=762883492 instance=ExtResource("8_jmdtq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.002, -0.3)
 snap_mode = 1
 
-[node name="XRToolsHighlightRing" type="MeshInstance3D" parent="Table/Scale/SnapZone"]
+[node name="XRToolsHighlightRing" type="MeshInstance3D" parent="Table/Scale/SnapZone" unique_id=1892419203]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.005, 0)
 mesh = SubResource("CylinderMesh_1d4hc")
-skeleton = NodePath("")
 script = ExtResource("5_sov04")
 
-[node name="ScreenStand" type="MeshInstance3D" parent="."]
+[node name="ScreenStand" type="MeshInstance3D" parent="." unique_id=1895919468]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0.401171, 0.81, -0.150948)
 mesh = ExtResource("3_c4pk7")
 
-[node name="Viewport2Din3D" parent="ScreenStand" instance=ExtResource("4_fv2eg")]
+[node name="Viewport2Din3D" parent="ScreenStand" unique_id=1521404545 instance=ExtResource("4_fv2eg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.375, 0)
 screen_size = Vector2(1, 0.75)
 scene = ExtResource("9_yh45h")
@@ -72,7 +71,7 @@ alpha_scissor_threshold = 0.59
 unshaded = true
 scene_properties_keys = PackedStringArray("menu_information.gd")
 
-[node name="HelpInspection" type="MeshInstance3D" parent="."]
+[node name="HelpInspection" type="MeshInstance3D" parent="." unique_id=674520267]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.327049, 1, -0.343175)
 mesh = SubResource("QuadMesh_ehgg5")
 skeleton = NodePath("../../..")

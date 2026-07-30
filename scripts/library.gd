@@ -19,6 +19,7 @@ signal library_updated
 signal xr_mode_changed(new_mode:XRInterface.EnvironmentBlendMode)
 
 ## Signal emitted if a certain exhibit has been requested to spawn
+
 signal spawn_exhibit(id:int)
 
 ## Trigger information display update

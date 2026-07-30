@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bla6hwam1g3ow"]
+[gd_scene format=3 uid="uid://bla6hwam1g3ow"]
 
 [ext_resource type="PackedScene" uid="uid://xjows4duh5bi" path="res://assets/props/table_modern.glb" id="1_cd4rv"]
 [ext_resource type="BoxMesh" uid="uid://oh8s876iq2pl" path="res://assets/props/screen_stand_mesh.tres" id="2_cf5iy"]
@@ -20,34 +20,34 @@ albedo_texture = ExtResource("6_k3jdm")
 material = SubResource("StandardMaterial3D_gm6u7")
 size = Vector2(0.4, 0.257)
 
-[node name="SpawnDesk" type="Node3D"]
+[node name="SpawnDesk" type="Node3D" unique_id=1325621291]
 
-[node name="Table" parent="." instance=ExtResource("1_cd4rv")]
+[node name="Table" parent="." unique_id=844438501 instance=ExtResource("1_cd4rv")]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Table"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Table" unique_id=193559105]
 collision_layer = 2
 collision_mask = 7
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Table/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Table/StaticBody3D" unique_id=636537838]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
 shape = SubResource("BoxShape3D_bhtft")
 
-[node name="Pedestal1" parent="Table" instance=ExtResource("2_r7v1e")]
+[node name="Pedestal1" parent="Table" unique_id=1158113113 instance=ExtResource("2_r7v1e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.607451, 0.8, -0.0115496)
 
-[node name="Pedestal2" parent="Table" instance=ExtResource("2_r7v1e")]
+[node name="Pedestal2" parent="Table" unique_id=674767403 instance=ExtResource("2_r7v1e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17987, 0.8, -0.0115496)
 
-[node name="HelpSpawn" type="MeshInstance3D" parent="Table"]
+[node name="HelpSpawn" type="MeshInstance3D" parent="Table" unique_id=404539950]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.396, 1.4, -0.261)
 mesh = SubResource("QuadMesh_88uu8")
 skeleton = NodePath("../../../..")
 
-[node name="ScreenStand" type="MeshInstance3D" parent="."]
+[node name="ScreenStand" type="MeshInstance3D" parent="." unique_id=1189217545]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0.401171, 0.81, -0.150948)
 mesh = ExtResource("2_cf5iy")
 
-[node name="Viewport2Din3D" parent="ScreenStand" instance=ExtResource("2_n6so6")]
+[node name="Viewport2Din3D" parent="ScreenStand" unique_id=1539635512 instance=ExtResource("2_n6so6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 screen_size = Vector2(1, 1)
 scene = ExtResource("3_gxc1y")

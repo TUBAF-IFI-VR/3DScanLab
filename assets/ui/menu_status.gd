@@ -32,7 +32,7 @@ func _ready() -> void:
 	timer.timeout.connect(self.refresh)
 	timer.start()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 	
 func xr_mode_changed(new_mode:XRInterface.EnvironmentBlendMode):
