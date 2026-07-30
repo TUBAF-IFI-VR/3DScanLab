@@ -75,18 +75,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 [node name="ControllerLeft" type="XRController3D" parent="XROrigin3D" unique_id=1037979748]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 1, 0)
 tracker = &"left_hand"
-pose = &"aim"
 
 [node name="LeftHand" parent="XROrigin3D/ControllerLeft" unique_id=1637314612 instance=ExtResource("3_o3f6f")]
 hand_material_override = ExtResource("4_a038j")
 
 [node name="FunctionTeleport" parent="XROrigin3D/ControllerLeft" unique_id=111153405 instance=ExtResource("8_okso4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02, -0.05, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.1)
 collision_mask = 1019
 valid_teleport_mask = 4294967289
 
 [node name="FunctionPickup" parent="XROrigin3D/ControllerLeft" unique_id=591727225 instance=ExtResource("9_1kpxa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02, -0.05, 0.1)
 grab_distance = 0.1
 ranged_enable = false
 ranged_distance = 2.0
@@ -112,6 +110,7 @@ ranged_distance = 2.0
 [node name="PlayerBody" parent="XROrigin3D" unique_id=1807459874 instance=ExtResource("11_oy7da")]
 collision_mask = 1017
 player_calibrate_height = false
+head_behavior_mode = 2
 
 [node name="StartXR" parent="." unique_id=867704499 instance=ExtResource("7_dpepp")]
 

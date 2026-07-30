@@ -73,4 +73,6 @@ vrs/mode=2
 [xr]
 
 openxr/enabled=true
+openxr/foveation_eye_tracked=false
+openxr/foveation_with_subsampled_images=false
 shaders/enabled=true
